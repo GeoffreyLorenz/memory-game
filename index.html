@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Memory Game by Geoffrey Lorenz</title>
+  <meta charset="utf-8">
+  <meta name="description" content="This Memory game web app was designed for the Google/Udacity Front-End Web Development">
+  <meta name="keywords" content="memory game, exercise, web-development, game development, udacity, web app">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Geoffrey Lorenz">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+  <div class="container">
+
+    <header class="header">
+      <h1>Memory Game</h1>
+    </header>
+
+    <section class="rules">
+      <h2 class="instructions">Instructions: </h2>
+      <p>Flip over two hidden cards at a time to locate the ones that match!<br>
+      Each turn:
+      <ul>
+        <li>The player flips one card over to reveal its underlying symbol</li>
+        <li>The player then turns over a second card, trying to find the corresponding card with the same symbol</li>
+        <li>If the cards match, both cards stay flipped over</li>
+        <li>If the cards do not match, both cards are flipped face down</li>
+      </ul>
+      The game ends once all cards have been correctly matched</p>
+    </section>
+
+    <section class="statistics">
+        <ul class="rating-star">
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+        <span class="number-moves">0</span> moves
+    </section>
+
+    <section class="control-buttons">
+      <button class="start">Start the game</button>
+      <button class="reset">Reset the game</button>
+      <button class="pause">Pause the game</button>
+    </section>
+
+    <section class="game-board">
+      <ul class=>
+
+      </ul>
+    </section>
+    <script src="app.js"></script>
+
+  </div>
+
+</body>
+
+
+</html>
