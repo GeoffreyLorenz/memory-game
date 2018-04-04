@@ -13,6 +13,7 @@ html, body {
 }
 
 body {
+  box-sizing: border-box;
   min-height: 100%;
   /* BentOnCoding explained that body should have a min-height of 100% if the content needs to change dynamically, which might be the case in this app.
   Source: https://stackoverflow.com/questions/6654958/make-body-have-100-of-the-browser-height */
@@ -23,7 +24,9 @@ body {
 
 .container {
   display: flex;
-  flex-flow: column;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100%;
 }
 
@@ -36,31 +39,91 @@ li, p {
   text-align: justify;
 }
 
-.star, .time, .move, .card {
+.card {
   display: inline-block;
   text-decoration: none;
 }
 
 .header {
+  width: 100%;
   border-width: 0 0 1px;
   border-color: #ffffff;
   border-style: solid;
 }
 
 .rules {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  border-width: 0 0 1px;
+  border-color: #ffffff;
+}
+
+h2 {
+  width: 100%;
+  text-align: center;
+}
+
+.list-instructions {
+}
+
+
+.statistics {
+  width: 100%;
   border-width: 0 0 1px;
   border-color: #ffffff;
   border-style: solid;
 }
 
-.statistics {
-  border-width: 0 0 1px;
-  border-color: #ffffff;
-  border-style: solid;
+/* Create flex-box for the stars */
+.rating-star {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Create flex-box for the additional-data */
+.additional-data {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Create flex-box for the button */
+.control-buttons {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+/* Create flex-box for the board game */
+
+.game-board {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
 }
 
 .card {
   border: 1px solid #ffffff;
+  width: 20%;
 }
 
 .fas {
