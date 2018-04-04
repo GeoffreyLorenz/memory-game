@@ -29,3 +29,8 @@ h1 {
 li, p {
   text-align: justify;
 }
+
+.star, .time, .move, .card {
+  display: inline-block;
+  text-decoration: none;
+}
