@@ -21,6 +21,12 @@ body {
 /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 
+.container {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+}
+
 h1 {
   text-align: center;
   font-size: 2em
