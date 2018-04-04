@@ -1,1 +1,31 @@
+/* Set up & Mobile first (nexus 5) */
 
+html {
+  height: 100%;
+  box-sizing: border-box;
+  font-size: 1em;
+}
+
+html, body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100%;
+  /* BentOnCoding explained that body should have a min-height of 100% if the content needs to change dynamically, which might be the case in this app.
+  Source: https://stackoverflow.com/questions/6654958/make-body-have-100-of-the-browser-height */
+  background-color: #b9b8bf;
+  background-image: url("https://www.transparenttextures.com/patterns/brick-wall-dark.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+}
+
+h1 {
+  text-align: center;
+  font-size: 2em
+}
+
+li, p {
+  text-align: justify;
+}
