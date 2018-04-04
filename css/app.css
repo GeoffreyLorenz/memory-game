@@ -34,3 +34,21 @@ li, p {
   display: inline-block;
   text-decoration: none;
 }
+
+.header {
+  border-width: 0 0 1px;
+  border-color: #ffffff;
+  border-style: solid;
+}
+
+.rules {
+  border-width: 0 0 1px;
+  border-color: #ffffff;
+  border-style: solid;
+}
+
+.statistics {
+  border-width: 0 0 1px;
+  border-color: #ffffff;
+  border-style: solid;
+}
