@@ -52,3 +52,11 @@ li, p {
   border-color: #ffffff;
   border-style: solid;
 }
+
+.card {
+  border: 1px solid #ffffff;
+}
+
+.fas {
+  font-size: 48px;
+}
