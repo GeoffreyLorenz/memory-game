@@ -39,10 +39,6 @@ li, p {
   text-align: justify;
 }
 
-.card {
-  display: inline-block;
-  text-decoration: none;
-}
 
 .header {
   width: 100%;
@@ -50,6 +46,7 @@ li, p {
   border-color: #ffffff;
   border-style: solid;
 }
+
 
 .rules {
   width: 100%;
@@ -68,7 +65,6 @@ h2 {
 
 .list-instructions {
 }
-
 
 .statistics {
   width: 100%;
@@ -119,13 +115,29 @@ h2 {
   justify-content: center;
   padding: 0;
   margin: 0;
+  border: 1px solid #ffffff;
+}
+
+.area-of-game {
+  width: 95%;
+  border: 1px solid #ffffff;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .card {
-  border: 1px solid #ffffff;
+  border: 5px outset #00BFFF;
+  display: inline-block;
+  text-align: center;
+  background: linear-gradient(#0061ff, #93bcff);
+  margin: 5px;
   width: 20%;
 }
 
-.fas {
+.card .fas {
   font-size: 48px;
+  visibility: hidden;
 }
