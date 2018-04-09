@@ -7,9 +7,8 @@ let minutes = 00,
     startButton = document.getElementById("start"),
     pauseButton = document.getElementById("pause"),
     gameArea = document.getElementById("area-of-game"),
-    nl = document.querySelectorAll(".card .fas"),  //grab the icons in .card, will give a nodeList
     card = document.getElementsByClassName("card"),
-    cards = [...nl], // transform the NodeList in an Array
+    cards = [...card], // put the html collection in the Array
     Interval;
 
 // Shuffle function from http://stackoverflow.com/a/2450976
@@ -32,12 +31,15 @@ let minutes = 00,
 
 startButton.onclick = function startGame() {
 
-// mix the deck
+// mix the deck by calling the shuffle function
 shuffle(cards);
-// inject the array in the <li> how to do that ???
-for (card of cards) {
-  console.log(card);
 
+// inject the array in the <li>
+for (card of cards) { //
+  gameArea.innerHTML = ""; // empty the board / area of the game
+  [].forEach.call(cards, function(inject) { // tweak from: Learn HTML5 and JavaScript for Android p.98
+            gameArea.appendChild(inject);
+        });
 }
 
 clearInterval(Interval); // https://www.w3schools.com/jsref/met_win_clearinterval.asp
