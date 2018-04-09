@@ -118,7 +118,7 @@ h2 {
   border: 1px solid #ffffff;
 }
 
-.area-of-game {
+#area-of-game {
   width: 95%;
   border: 1px solid #ffffff;
   display: flex;

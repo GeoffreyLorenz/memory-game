@@ -4,15 +4,13 @@ let minutes = 00,
     seconds = 00,
     addSeconds = document.getElementById("seconds"),
     addMinutes = document.getElementById("minutes"),
-    startButton = document.getElementById('start'),
-    pauseButton = document.getElementById('pause'),
-    nl = document.querySelectorAll(".card .fas"),   //grab the icons in .card, will give a nodeList
-    deck = [...nl], // transform the NodeList in an Array
+    startButton = document.getElementById("start"),
+    pauseButton = document.getElementById("pause"),
+    gameArea = document.getElementById("area-of-game"),
+    nl = document.querySelectorAll(".card .fas"),  //grab the icons in .card, will give a nodeList
+    card = document.getElementsByClassName("card"),
+    cards = [...nl], // transform the NodeList in an Array
     Interval;
-
-
-
-
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 
@@ -34,8 +32,13 @@ let minutes = 00,
 
 startButton.onclick = function startGame() {
 
-shuffle(deck);
+// mix the deck
+shuffle(cards);
 // inject the array in the <li> how to do that ???
+for (card of cards) {
+  console.log(card);
+
+}
 
 clearInterval(Interval); // https://www.w3schools.com/jsref/met_win_clearinterval.asp
 Interval = setInterval(startTimer, 1000); // start the timer, 1000 = 1 second
