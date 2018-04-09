@@ -6,9 +6,36 @@ let minutes = 00,
     addMinutes = document.getElementById("minutes"),
     startButton = document.getElementById('start'),
     pauseButton = document.getElementById('pause'),
+    nl = document.querySelectorAll(".card .fas"),   //grab the icons in .card, will give a nodeList
+    deck = [...nl], // transform the NodeList in an Array
     Interval;
 
+
+
+
+
+// Shuffle function from http://stackoverflow.com/a/2450976
+
+        function shuffle(array) {
+        let currentIndex = array.length, temporaryValue, randomIndex;
+
+        while (currentIndex !== 0) {
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+            temporaryValue = array[currentIndex];
+            array[currentIndex] = array[randomIndex];
+            array[randomIndex] = temporaryValue;
+        }
+
+        return array;
+    }
+
+// Initiate the game
+
 startButton.onclick = function startGame() {
+
+shuffle(deck);
+// inject the array in the <li> how to do that ???
 
 clearInterval(Interval); // https://www.w3schools.com/jsref/met_win_clearinterval.asp
 Interval = setInterval(startTimer, 1000); // start the timer, 1000 = 1 second
@@ -19,7 +46,9 @@ addMinutes.innerHTML = minutes;
 startButton.innerHTML = "Reset the Game"; // I was thinking about a reset button but I think this is more intuitive to just change start dynamically
 }
 
+// pause button and what it does
 pauseButton.onclick = function() {
+
 clearInterval(Interval); // pause the timer
 alert("You can come back later, the time has stopped!"); // when window is left, timer start again
 Interval = setInterval(startTimer, 1000)
@@ -48,36 +77,3 @@ function startTimer () {
   }
 // no encoding for hours because most of the user will finish before an hour, I might add a rule to loose the game if over 10 mins
 }
-
-// Shuffle function from http://stackoverflow.com/a/2450976
-function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
-
-    while (currentIndex !== 0) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
-    }
-
-    return array;
-}
-
-// create the Array of cards
-
-let nl = document.getElementsByClassName('card').querySelectorAll(.fas); //grab the icons in .card, will give a nodeList
-
-// transform the NodeList in an Array ??? Do not know if it works, I get undefined
-let Array = [...nl];
-
-
-// then I want to shuffle the (.fas each time I click on start button).
-
-// I want to click on the .card containing the .fas and a flip animation + a change of class to make the .fas visible happen --> I think I know how change the class in JS
-
-// then I want to compare the clickedCards
-
-// if they have the same class fas fa-bowling(for example), I want to apply a match class which will animate and color the background, the element must disappear, maybe display none
-
-// if they do not match, background becomes red, little animation and the cards turn again
