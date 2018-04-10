@@ -57,7 +57,7 @@ for (card of cards) { // looping over our 16 cards
   startButton.innerHTML = "Reset the Game"; // I was thinking about a reset button but I think this is more intuitive to just change start dynamically
 }
 
-for (card of cards) {
+  for (card of cards) {
     card.onclick = function cardsWaitingToBeCompared () {  // when a card is clicked on, it calls the function cardsWaitingToBeCompared
       this.classList.add("flip");// use of "this." otherwise, when I click on a card, another one get flipped.
       clickedCards.push(this);
