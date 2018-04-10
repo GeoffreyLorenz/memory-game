@@ -11,6 +11,8 @@ let minutes = 00,
     cards = [...card], // put the html collection in the Array
     clickedCards = [], // store the value of clicked Cards, which will be always [0, 1]
     drawingOfTheCard = document.getElementsByClassName(".card fas"),
+    moves = 0,
+    movesCounter = document.getElementById("move"),
     drawingOfTheCards = [...drawingOfTheCard],
     Interval;
 
@@ -62,7 +64,7 @@ for (card of cards) {
       if (clickedCards.length === 2) { // Once two cards are clicked trigger the below actions
         console.log(clickedCards[0]);
         console.log(clickedCards[1]);
-        console.log("Two cards were clicked");
+        console.log("Two cards were clicked and you get a move counted");
         if (clickedCards[0].innerHTML === clickedCards[1].innerHTML) { // I added .innerHTML and it solved my issue
           console.log("it's a match");
           clickedCards[0].classList.add("matched");
@@ -113,4 +115,9 @@ function startTimer () {
     addMinutes.innerHTML = minutes;
   }
 // no encoding for hours because most of the user will finish before an hour, I might add a rule to loose the game if over 10 mins
+}
+
+function countAMove() {
+  moves++;
+  movesCounter.innerHTML = moves;
 }
