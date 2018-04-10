@@ -120,3 +120,10 @@ function countAMove() {
   moves++;
   movesCounter.innerHTML = moves;
 }
+
+function endGame() {
+  if (pairToFind === 0) {
+  console.log("the Game is finished");
+}  else {
+  console.log("the game continues");
+  }
