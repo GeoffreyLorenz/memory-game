@@ -62,8 +62,7 @@ for (card of cards) {
       clickedCards.push(this);
  // which store the clicked card in the clickedCards array
       if (clickedCards.length === 2) { // Once two cards are clicked trigger the below actions
-        console.log(clickedCards[0]);
-        console.log(clickedCards[1]);
+        countAMove();
         console.log("Two cards were clicked and you get a move counted");
         if (clickedCards[0].innerHTML === clickedCards[1].innerHTML) { // I added .innerHTML and it solved my issue
           console.log("it's a match");
