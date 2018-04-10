@@ -62,21 +62,20 @@ for (card of cards) {
       clickedCards.push(this);
  // which store the clicked card in the clickedCards array
       if (clickedCards.length === 2) { // Once two cards are clicked trigger the below actions
+        console.log(clickedCards[0]);
+        console.log(clickedCards[1]);
         console.log("Two cards were clicked");
-        if (clickedCards[0] === clickedCards[1]) { // if clicked cards =
+        if (clickedCards[0].innerHTML === clickedCards[1].innerHTML) { // I added .innerHTML and it solved my issue
 
-          console.log("it's a match");
+        console.log("it's a match");
       } else {
         console.log(clickedCards[0]);
         console.log(clickedCards[1]);
-
-          console.log("that's not a match");
+        console.log("that's not a match");
         }
     }
   }
 }
-
-
 
 
 
