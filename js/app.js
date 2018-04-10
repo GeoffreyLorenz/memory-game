@@ -9,6 +9,8 @@ let minutes = 00,
     gameArea = document.getElementById("area-of-game"),
     card = document.getElementsByClassName("card"),
     cards = [...card], // put the html collection in the Array
+    clickedCards = [], // store the value of clicked Cards, which will be always [0, 1]
+    drawingOfTheCard = document.getElementsByClassName(".card fas"),
     Interval;
 
 // Shuffle function from http://stackoverflow.com/a/2450976
@@ -34,22 +36,44 @@ startButton.onclick = function startGame() {
 // mix the deck by calling the shuffle function
 shuffle(cards);
 
-// inject the array in the <li>
-for (card of cards) { //
+for (card of cards) { // looping over our 16 cards
   gameArea.innerHTML = ""; // empty the board / area of the game
   [].forEach.call(cards, function(inject) { // tweak from: Learn HTML5 and JavaScript for Android p.98
-            gameArea.appendChild(inject);
+            gameArea.appendChild(inject); // inject the array in the <li>
+
         });
 }
 
-clearInterval(Interval); // https://www.w3schools.com/jsref/met_win_clearinterval.asp
-Interval = setInterval(startTimer, 1000); // start the timer, 1000 = 1 second
-seconds = "00";
-minutes = "00";
-addSeconds.innerHTML = seconds;
-addMinutes.innerHTML = minutes;
-startButton.innerHTML = "Reset the Game"; // I was thinking about a reset button but I think this is more intuitive to just change start dynamically
+  clearInterval(Interval); // https://www.w3schools.com/jsref/met_win_clearinterval.asp
+  Interval = setInterval(startTimer, 1000); // start the timer, 1000 = 1 second
+  seconds = "00";
+  minutes = "00";
+  addSeconds.innerHTML = seconds;
+  addMinutes.innerHTML = minutes;
+  startButton.innerHTML = "Reset the Game"; // I was thinking about a reset button but I think this is more intuitive to just change start dynamically
 }
+
+
+
+  for (card of cards) {
+    card.onclick = function cardsWaitingToBeCompared() { // when a card is clicked on, it calls the function cardsWaitingToBeCompared
+      console.log("boooo");
+      clickedCards.push(this); // which store the clicked card in the clickedCards array
+      if (clickedCards.length == 2) { // Once two cards are clicked trigger the below actions
+        console.log("Two cards were clicked");
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
 
 // pause button and what it does
 pauseButton.onclick = function() {
