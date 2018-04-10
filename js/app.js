@@ -70,7 +70,8 @@ for (card of cards) {
         } else {
             notMatched();
           }
-    }
+        clickedCards = [];
+        }
   }
 }
 
