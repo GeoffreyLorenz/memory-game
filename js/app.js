@@ -55,14 +55,20 @@ for (card of cards) { // looping over our 16 cards
 
 
 
-  for (card of cards) {
+for (card of cards) {
     card.onclick = function cardsWaitingToBeCompared() { // when a card is clicked on, it calls the function cardsWaitingToBeCompared
       console.log("boooo");
       clickedCards.push(this); // which store the clicked card in the clickedCards array
       if (clickedCards.length == 2) { // Once two cards are clicked trigger the below actions
         console.log("Two cards were clicked");
+        if (clickedCards[0] === clickedCards[1]) { // if clicked cards =
+          console.log("it's a match");
+      } else {
+          console.log("that's not a match");
+        }
     }
   }
+
 }
 
 
