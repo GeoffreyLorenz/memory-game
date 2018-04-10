@@ -158,9 +158,12 @@ h2 {
 
 .matched {
   transform: rotateX(360deg);
-  transition: 2s;
-background: linear-gradient(blue, red)}
+  transition: 0.5s;
+  background: linear-gradient(blue, red);
+  delay: 1 s;
+}
 
 .not-matched {
-  background-color: red;
+  transform: rotateZ(360deg);
+ background: linear-gradient(white, gray);
 }
