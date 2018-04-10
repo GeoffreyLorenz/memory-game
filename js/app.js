@@ -13,6 +13,7 @@ let minutes = 00,
     drawingOfTheCard = document.getElementsByClassName(".card fas"),
     moves = 0,
     movesCounter = document.getElementById("move"),
+    pairToFind = 8, // because 16 cards.
     drawingOfTheCards = [...drawingOfTheCard],
     Interval;
 
@@ -68,6 +69,7 @@ for (card of cards) {
           console.log("it's a match");
           clickedCards[0].classList.add("matched");
           clickedCards[1].classList.add("matched");
+          pairToFind--;
             } else {
         console.log(clickedCards[0]);
         console.log(clickedCards[1]);
@@ -127,3 +129,4 @@ function endGame() {
 }  else {
   console.log("the game continues");
   }
+}
