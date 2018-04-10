@@ -144,9 +144,22 @@ h2 {
 }
 
 .hidden {
-visibility: hidden;
+  visibility: hidden;
 }
 
 .visible {
   visibility: visible;
+}
+
+.flip {
+  transform: rotateY(180deg);
+  transition: 2s;
+}
+
+.matched {
+  background-color: green;
+}
+
+.not-matched {
+  background-color: red;
 }

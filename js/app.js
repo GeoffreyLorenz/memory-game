@@ -11,6 +11,7 @@ let minutes = 00,
     cards = [...card], // put the html collection in the Array
     clickedCards = [], // store the value of clicked Cards, which will be always [0, 1]
     drawingOfTheCard = document.getElementsByClassName(".card fas"),
+    drawingOfTheCards = [...drawingOfTheCard],
     Interval;
 
 // Shuffle function from http://stackoverflow.com/a/2450976
@@ -56,23 +57,24 @@ for (card of cards) { // looping over our 16 cards
 
 
 for (card of cards) {
-    card.onclick = function cardsWaitingToBeCompared() { // when a card is clicked on, it calls the function cardsWaitingToBeCompared
-      console.log("boooo");
-      clickedCards.push(this); // which store the clicked card in the clickedCards array
-      if (clickedCards.length == 2) { // Once two cards are clicked trigger the below actions
+    card.onclick = function cardsWaitingToBeCompared () {  // when a card is clicked on, it calls the function cardsWaitingToBeCompared
+      this.classList.add("flip");// use of "this." otherwise, when I click on a card, another one get flipped.
+      clickedCards.push(this);
+ // which store the clicked card in the clickedCards array
+      if (clickedCards.length === 2) { // Once two cards are clicked trigger the below actions
         console.log("Two cards were clicked");
         if (clickedCards[0] === clickedCards[1]) { // if clicked cards =
+
           console.log("it's a match");
       } else {
+        console.log(clickedCards[0]);
+        console.log(clickedCards[1]);
+
           console.log("that's not a match");
         }
     }
   }
-
 }
-
-
-
 
 
 
