@@ -65,28 +65,13 @@ for (card of cards) {
  // which store the clicked card in the clickedCards array
     if (clickedCards.length === 2) { // Once two cards are clicked trigger the below actions
       countAMove();
-      console.log("Two cards were clicked and you get a move counted");
-
-
-      do {
         if (clickedCards[0].innerHTML === clickedCards[1].innerHTML) {// I added .innerHTML and it solved my issue
-          console.log("it's a match");
-          clickedCards[0].classList.add("matched");
-          clickedCards[1].classList.add("matched");
-          pairToFind--;
-          console.log(pairToFind);
-      } else {
-            console.log(clickedCards[0]);
-            console.log(clickedCards[1]);
-            console.log("that's not a match");
-            clickedCards[0].classList.add("not-matched");
-            clickedCards[1].classList.add("not-matched");
-            }
+          match();
+        } else {
+            notMatched();
           }
-        while (pairToFind > 0);
-
-      }
     }
+  }
 }
 
   // pause button and what it does
@@ -132,4 +117,17 @@ function endGame() {
   console.log("The game continues");
   }
   return false;
+}
+
+function match() {
+  clickedCards[0].classList.add("matched");
+  clickedCards[1].classList.add("matched");
+  pairToFind--;
+}
+
+
+
+function notMatched() {
+  clickedCards[0].classList.add("not-matched");
+  clickedCards[1].classList.add("not-matched");
 }
