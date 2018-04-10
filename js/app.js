@@ -39,54 +39,57 @@ startButton.onclick = function startGame() {
 
 // mix the deck by calling the shuffle function
 shuffle(cards);
-
+clearInterval(Interval); // https://www.w3schools.com/jsref/met_win_clearinterval.asp
+pairToFind = 8;
+Interval = setInterval(startTimer, 1000); // start the timer, 1000 = 1 second
+seconds = "00";
+minutes = "00";
+addSeconds.innerHTML = seconds;
+addMinutes.innerHTML = minutes;
+startButton.innerHTML = "Reset the Game"; // I was thinking about a reset button but I think this is more intuitive to just change start dynamically
 for (card of cards) { // looping over our 16 cards
   gameArea.innerHTML = ""; // empty the board / area of the game
   [].forEach.call(cards, function(inject) { // tweak from: Learn HTML5 and JavaScript for Android p.98
             gameArea.appendChild(inject); // inject the array in the <li>
 
         });
+  }
 }
 
-  clearInterval(Interval); // https://www.w3schools.com/jsref/met_win_clearinterval.asp
-  Interval = setInterval(startTimer, 1000); // start the timer, 1000 = 1 second
-  seconds = "00";
-  minutes = "00";
-  addSeconds.innerHTML = seconds;
-  addMinutes.innerHTML = minutes;
-  startButton.innerHTML = "Reset the Game"; // I was thinking about a reset button but I think this is more intuitive to just change start dynamically
-}
+for (card of cards) {
+  card.onclick = function cardsWaitingToBeCompared() {  // when a card is clicked on, it calls the function cardsWaitingToBeCompared
+  this.classList.add("flip");// use of "this." otherwise, when I click on a card, another one get flipped.
+  console.log(this);
+  clickedCards.push(this);
 
-  for (card of cards) {
-    card.onclick = function cardsWaitingToBeCompared () {  // when a card is clicked on, it calls the function cardsWaitingToBeCompared
-      this.classList.add("flip");// use of "this." otherwise, when I click on a card, another one get flipped.
-      clickedCards.push(this);
  // which store the clicked card in the clickedCards array
-      if (clickedCards.length === 2) { // Once two cards are clicked trigger the below actions
-        countAMove();
-        console.log("Two cards were clicked and you get a move counted");
-        if (clickedCards[0].innerHTML === clickedCards[1].innerHTML) { // I added .innerHTML and it solved my issue
+    if (clickedCards.length === 2) { // Once two cards are clicked trigger the below actions
+      countAMove();
+      console.log("Two cards were clicked and you get a move counted");
+
+
+      do {
+        if (clickedCards[0].innerHTML === clickedCards[1].innerHTML) {// I added .innerHTML and it solved my issue
           console.log("it's a match");
           clickedCards[0].classList.add("matched");
           clickedCards[1].classList.add("matched");
           pairToFind--;
-            } else {
-        console.log(clickedCards[0]);
-        console.log(clickedCards[1]);
-        console.log("that's not a match");
-          clickedCards[0].classList.add("not-matched");
-          clickedCards[1].classList.add("not-matched");
-        }
+          console.log(pairToFind);
+      } else {
+            console.log(clickedCards[0]);
+            console.log(clickedCards[1]);
+            console.log("that's not a match");
+            clickedCards[0].classList.add("not-matched");
+            clickedCards[1].classList.add("not-matched");
+            }
+          }
+        while (pairToFind > 0);
+
+      }
     }
-  }
 }
 
-
-
-
-
-
-// pause button and what it does
+  // pause button and what it does
 pauseButton.onclick = function() {
 
 clearInterval(Interval); // pause the timer
@@ -125,8 +128,8 @@ function countAMove() {
 
 function endGame() {
   if (pairToFind === 0) {
-  console.log("the Game is finished");
-}  else {
-  console.log("the game continues");
+    return true;
+  console.log("The game continues");
   }
+  return false;
 }
