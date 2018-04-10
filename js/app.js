@@ -66,9 +66,10 @@ for (card of cards) {
         console.log(clickedCards[1]);
         console.log("Two cards were clicked");
         if (clickedCards[0].innerHTML === clickedCards[1].innerHTML) { // I added .innerHTML and it solved my issue
-
-        console.log("it's a match");
-      } else {
+          console.log("it's a match");
+          clickedCards[0].classList.add("matched");
+          clickedCards[1].classList.add("matched");
+            } else {
         console.log(clickedCards[0]);
         console.log(clickedCards[1]);
         console.log("that's not a match");
