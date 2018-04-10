@@ -159,8 +159,7 @@ h2 {
 .matched {
   transform: rotateX(360deg);
   transition: 2s;
-  background-color: green;
-}
+background: linear-gradient(blue, red)}
 
 .not-matched {
   background-color: red;
