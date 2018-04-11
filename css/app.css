@@ -133,7 +133,10 @@ h2 {
   border: 5px outset #00BFFF;
   display: inline-block;
   text-align: center;
-  background: linear-gradient(#0061ff, #93bcff);
+  /*
+  Background color black as long
+  as I do not manage to change the visibility of the childCards aka drawingOfTheCard
+  */
   margin: 5px;
   width: 20%;
 }
@@ -149,6 +152,7 @@ h2 {
 }
 
 .flip {
+  background-color: white;
   transform: rotateX(180deg);
   transition: 0.5s;
 }
