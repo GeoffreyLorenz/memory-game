@@ -107,6 +107,7 @@ function startTimer () {
 
   if (minutes > 9){
     addMinutes.innerHTML = minutes;
+    loseGame();
   }
 // no encoding for hours because most of the user will finish before an hour, I might add a rule to loose the game if over 10 mins
 }
@@ -116,7 +117,12 @@ function countAMove() {
   movesCounter.innerHTML = moves;
 }
 
-function endGame() {
+function loseGame()
+{
+  console.log("you lost");
+}
+
+function winGame() {
   if (pairToFind === 0) {
     console.log("The game ends open a Windows to show the stats and ask if he wants to reset");
   }
@@ -127,7 +133,7 @@ function match() {
   clickedCards[0].classList.toggle("matched"); // to trigger matched. otherwise, it's half done animation.
   clickedCards[1].classList.toggle("matched");
   pairToFind--;
-  endGame();
+  winGame();
 }
 
 function notMatched() {
