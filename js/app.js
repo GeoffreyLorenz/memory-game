@@ -118,10 +118,10 @@ function countAMove() {
   if (moves > 12) {
     star--;
   }
-  else if (move > 15) {
+  else if (moves > 15) {
     star--;
   }
-  else if (move > 20) {
+  else if (moves > 20) {
     star--;
   }
   else {
