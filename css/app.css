@@ -74,7 +74,7 @@ h2 {
 }
 
 /* Create flex-box for the stars */
-.rating-star {
+#rating-star {
   width: 100%;
   display: flex;
   align-items: center;
