@@ -114,15 +114,15 @@ function countAMove() {
 
 function endGame() {
   if (pairToFind === 0) {
-  console.log("The game continues");
+  console.log("The game ends open a Windows to show the stats and ask if he wants to reset");
   }
-  return false;
 }
 
 function match() {
   clickedCards[0].classList.add("matched");
   clickedCards[1].classList.add("matched");
   pairToFind--;
+  endGame();
 }
 
 
