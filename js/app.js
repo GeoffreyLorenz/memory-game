@@ -3,19 +3,23 @@
 let minutes = 00,
     seconds = 00,
     addSeconds = document.getElementById("seconds"),
-    addMinutes = document.getElementById("minutes"),
+    addMinutes = document.getElementById("minutes"), // all the above was linked to time
+    Interval,
+    // link to click buttons
     startButton = document.getElementById("start"),
     pauseButton = document.getElementById("pause"),
+
+    // get the elements from the are-of-game, cards, etc
     gameArea = document.getElementById("area-of-game"),
     card = document.getElementsByClassName("card"),
     cards = [...card], // put the html collection in the Array
     clickedCards = [], // store the value of clicked Cards, which will be always [0, 1]
     drawingOfTheCard = document.getElementsByClassName(".card fas"),
+    drawingOfTheCards = [...drawingOfTheCard],
+    //move related variables
     moves = 0,
     movesCounter = document.getElementById("move"),
-    pairToFind = 8, // because 16 cards.
-    drawingOfTheCards = [...drawingOfTheCard],
-    Interval;
+    pairToFind = 8; // because 16 cards.
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 
@@ -37,14 +41,6 @@ startButton.onclick = function startGame() {
   startButton.innerHTML = "Reset the Game"; // I was thinking about a reset button but I think this is more intuitive to just change start dynamically
   // mix the deck by calling the shuffle function
   shuffle(cards);
-  clearInterval(Interval); // https://www.w3schools.com/jsref/met_win_clearinterval.asp
-  pairToFind = 8;
-  moves = 0;
-  Interval = setInterval(startTimer, 1000); // start the timer, 1000 = 1 second
-  seconds = "00";
-  minutes = "00";
-  addSeconds.innerHTML = seconds;
-  addMinutes.innerHTML = minutes;
   // remove the cards content for people who would have started the game without click on start. Indeed, the cards would have stayed unflipped / already counted
   for (card of cards) { // looping over our 16 cards
       gameArea.innerHTML = ""; // empty the board / area of the game
@@ -53,6 +49,17 @@ startButton.onclick = function startGame() {
     });
   card.classList.remove("matched", "not-matched", "flip");
   }
+  // start the timer
+  clearInterval(Interval); // https://www.w3schools.com/jsref/met_win_clearinterval.asp
+  Interval = setInterval(startTimer, 1000); // start the timer, 1000 = 1 second
+  seconds = "00";
+  minutes = "00";
+  addSeconds.innerHTML = seconds;
+  addMinutes.innerHTML = minutes;
+  // re/initiate move-related variables
+  pairToFind = 8;
+  moves = 0;
+  movesCounter.innerHTML = moves;
 }
 
 // click on a card
@@ -61,7 +68,7 @@ for (card of cards) {
   this.classList.toggle("flip");// use of "this." otherwise, when I click on a card, another one get flipped.
   clickedCards.push(this); // which store the clicked card in the clickedCards array
 
-    if (clickedCards.length <= 2 && clickedCards[0].innerHTML === clickedCards[1].innerHTML) { // Once two cards are clicked trigger the below actions
+    if (clickedCards.length === 2 && clickedCards[0].innerHTML === clickedCards[1].innerHTML) { // Once two cards are clicked trigger the below actions
       match();
     } else { // remove the flip
       notMatched();
