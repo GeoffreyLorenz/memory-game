@@ -15,13 +15,21 @@ let minutes = 00,
     moves = 0,
     movesCounter = document.getElementById("move"),
     pairToFind = 8, // Because 16 cards.
-    // star related variables
+    // Star related variables
     starsContainer = document.getElementById("rating-star"),
     star = document.getElementsByClassName("star"),
+    stars = [...star],
+    // cards related variables
     card = document.getElementsByClassName("card"),
     cards = [...card], // Put the html collection in the Array
-    clickedCards = [],
-    stars = [...star];
+    clickedCards = [];
+
+
+const fixedStarsContainer = document.getElementById("rating-star"),
+      fixedStar = document.getElementsByClassName("star"),
+      fixedStars = [...fixedStar];
+
+
 
 // Click on a card
 for (card of cards) {
@@ -79,12 +87,12 @@ function countAMove() {
   movesCounter.innerHTML = moves;
   if (moves === 1) {
     stars.shift();
-    starsContainer.innerHTML = starsContainer.innerHTML;
+    starsContainer.innerHTML = star.values;
     console.log(stars);
   }
   else if (moves === 3) {
     stars.shift();
-    starsContainer.innerHTML = "";
+    fixedStarsContainer.innerHTML = "";
     console.log(stars);
   }
 
@@ -92,7 +100,6 @@ function countAMove() {
     stars.shift();
     starsContainer.innerHTML = stars.length;
     console.log(stars);
-
   }
   else if (moves > 8)
     {
@@ -105,6 +112,9 @@ function match() {
   clickedCards[0].classList.toggle("matched"); // To trigger matched. otherwise, it's half done animation.
   clickedCards[1].classList.toggle("matched");
   pairToFind--;
+    if (pairToFind === 0){
+      winGame();
+    }
 }
 
 function unMatched() {
@@ -113,12 +123,8 @@ function unMatched() {
 }
 
 function winGame() {
-  if (pairToFind === 0) {
     console.log("The game ends open a Windows to show the stats and ask if he wants to reset");
   }
-  return false;
-}
-
 
 // Initiate the game
 startButton.onclick = function startGame() {
@@ -135,10 +141,9 @@ startButton.onclick = function startGame() {
   }
   // Reset the stars.
   for (star of stars) { // Looping over our 3 stars
-      starsContainer.innerHTML = ""; // Empty the container;
-      [].forEach.call(stars, function(inject) { // Tweak from: Learn HTML5 and JavaScript for Android p.98
-        starsContainer.appendChild(inject); // Inject the array in the <li>
-    });
+
+      starsContainer.innerHTML = fixedStarsContainer.innerHTML; // Empty the container;
+
 }
 
   // Start the timer
