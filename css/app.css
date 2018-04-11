@@ -145,27 +145,31 @@ h2 {
 
 .hidden {
   visibility: hidden;
-}
-
-.visible {
-  visibility: visible;
+  transform: rotateX(-180deg);
 }
 
 .flip {
-  transform: rotateY(180deg);
-  transition: 2s;
+  transform: rotateX(180deg);
+  transition: 0.5s;
 }
 
 .matched {
-  transform: rotateX(360deg);
-  transition: 0.5s;
+  transform: rotateX(180deg);
+  transition: 1s;
   background: linear-gradient(blue, red);
-  delay: 1 s;
+  delay: 0.5s;
   pointer-events: none;
 }
 
 
 .not-matched {
-  transform: rotateZ(360deg);
- background: linear-gradient(white, gray);
+  transform: rotateX(180deg);
+  transition: 1s;
+  transition: 0.5s;
+  background: linear-gradient(white, gray);
+}
+
+.go-back-normal {
+  transform: rotateX(-180deg);
+  delay: 1s;
 }
