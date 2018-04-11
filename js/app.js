@@ -114,7 +114,6 @@ function countAMove() {
 
 function endGame() {
   if (pairToFind === 0) {
-    return true;
   console.log("The game continues");
   }
   return false;

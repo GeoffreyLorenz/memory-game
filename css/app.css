@@ -161,7 +161,9 @@ h2 {
   transition: 0.5s;
   background: linear-gradient(blue, red);
   delay: 1 s;
+  pointer-events: none;
 }
+
 
 .not-matched {
   transform: rotateZ(360deg);
