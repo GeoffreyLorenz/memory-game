@@ -103,10 +103,13 @@ function countAMove() {
   }
   else if (moves > 8)
     {
-      console.log("functionEndGame")
-    }
+    loseGame();
+      }
   }
 
+function loseGame() {
+  console.log("you lost");
+}
 
 function match() {
   clickedCards[0].classList.toggle("matched"); // To trigger matched. otherwise, it's half done animation.
@@ -139,7 +142,7 @@ startButton.onclick = function startGame() {
     });
   card.classList.remove("matched", "not-matched", "flip");
   }
-  // Reset the stars.
+  // Reset the stars i do not know how to do it.
   for (star of stars) { // Looping over our 3 stars
 
       starsContainer.innerHTML = fixedStarsContainer.innerHTML; // Empty the container;
