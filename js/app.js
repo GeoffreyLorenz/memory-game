@@ -58,7 +58,7 @@ for (card of cards) {
   this.classList.toggle("flip");// use of "this." otherwise, when I click on a card, another one get flipped.
   clickedCards.push(this); // which store the clicked card in the clickedCards array
 
-    if (clickedCards.length === 2 && clickedCards[0].innerHTML === clickedCards[1].innerHTML) { // Once two cards are clicked trigger the below actions
+    if (clickedCards.length <= 2 && clickedCards[0].innerHTML === clickedCards[1].innerHTML) { // Once two cards are clicked trigger the below actions
       countAMove();
       match();
     } else { // remove the flip
@@ -68,7 +68,6 @@ for (card of cards) {
     clickedCards = [];    // important as otherwise the clickedCards.length does not reset and go over 2 and countAMove & notMatched() are not triggered
     }
   }
-}
 
   // pause button and what it does
 pauseButton.onclick = function() {
