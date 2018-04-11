@@ -50,6 +50,7 @@ startButton.onclick = function startGame() {
       [].forEach.call(cards, function(inject) { // tweak from: Learn HTML5 and JavaScript for Android p.98
         gameArea.appendChild(inject); // inject the array in the <li>
     });
+  card.classList.remove("matched", "not-matched", "flip");
   }
 }
 
