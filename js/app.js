@@ -33,19 +33,20 @@ function shuffle(array) {
 }
 
 // Initiate the game
-
 startButton.onclick = function startGame() {
   startButton.innerHTML = "Reset the Game"; // I was thinking about a reset button but I think this is more intuitive to just change start dynamically
   // mix the deck by calling the shuffle function
   shuffle(cards);
   clearInterval(Interval); // https://www.w3schools.com/jsref/met_win_clearinterval.asp
   pairToFind = 8;
+  moves = 0;
   Interval = setInterval(startTimer, 1000); // start the timer, 1000 = 1 second
   seconds = "00";
   minutes = "00";
   addSeconds.innerHTML = seconds;
   addMinutes.innerHTML = minutes;
-    for (card of cards) { // looping over our 16 cards
+  // remove the cards content for people who would have started the game without click on start. Indeed, the cards would have stayed unflipped / already counted
+  for (card of cards) { // looping over our 16 cards
       gameArea.innerHTML = ""; // empty the board / area of the game
       [].forEach.call(cards, function(inject) { // tweak from: Learn HTML5 and JavaScript for Android p.98
         gameArea.appendChild(inject); // inject the array in the <li>
@@ -54,6 +55,7 @@ startButton.onclick = function startGame() {
   }
 }
 
+// click on a card
 for (card of cards) {
   card.onclick = function cardsWaitingToBeCompared() {  // when a card is clicked on, it calls the function cardsWaitingToBeCompared
   this.classList.toggle("flip");// use of "this." otherwise, when I click on a card, another one get flipped.
@@ -65,6 +67,8 @@ for (card of cards) {
       notMatched();
     }
     countAMove();
+    clickedCards[0].classList.remove("flip", "not-matched");
+    clickedCards[1].classList.remove("flip", "not-matched");
     clickedCards = [];    // important as otherwise the clickedCards.length does not reset and go over 2 and countAMove & notMatched() are not triggered
     }
   }

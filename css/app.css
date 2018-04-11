@@ -146,11 +146,6 @@ h2 {
 
 }
 
-.hidden {
-  visibility: hidden;
-  transform: rotateX(-180deg);
-}
-
 .flip {
   background-color: white;
   transform: rotateX(180deg);
@@ -168,12 +163,7 @@ h2 {
 
 .not-matched {
   transform: rotateX(180deg);
+  transition-delay: 3s;
   transition: 1s;
-  transition: 0.5s;
   background: linear-gradient(white, gray);
-}
-
-.go-back-normal {
-  transform: rotateX(-180deg);
-  delay: 1s;
 }
