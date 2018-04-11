@@ -70,7 +70,7 @@ for (card of cards) {
         } else {
             notMatched();
           }
-        clickedCards = [];
+        clickedCards = []; // important as otherwise the clickedCards.length does not reset and go over 2 and countAMove & notMatched() are not triggered
         }
   }
 }
