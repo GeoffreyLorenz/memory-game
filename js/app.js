@@ -23,6 +23,8 @@ let minutes = 00,
     card = document.getElementsByClassName("card"),
     cards = [...card], // Put the html collection in the Array
     clickedCards = [];
+    // Pop up
+    popup = document.getElementById("myPopup1");
 
 
 const fixedStarsContainer = document.getElementById("rating-star"),
@@ -175,4 +177,8 @@ function shuffle(array) {
     array[randomIndex] = temporaryValue;
   }
   return array;
+}
+
+function popUp() {
+    popup.classList.toggle("show");
 }
