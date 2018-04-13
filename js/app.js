@@ -19,13 +19,20 @@ let minutes = 00,
     starsContainer = document.getElementById("rating-star"),
     star = document.getElementsByClassName("star"),
     stars = [...star],
+    firstStar = document.getElementById("star1"),
+    secondStar = document.getElementById("star2"),
+    thirdStar = document.getElementById("star3"),
     // cards related variables
     card = document.getElementsByClassName("card"),
     cards = [...card], // Put the html collection in the Array
-    clickedCards = [];
+    clickedCards = [],
     // Pop up
-    popup = document.getElementById("myPopup1");
-
+    popup = document.getElementById("myPopup1"),
+    finalMinutes = document.getElementById("final-minutes"),
+    finalSeconds = document.getElementById("final-seconds"),
+    finalScore = document.getElementById("final-score"),
+    rePlay = document.getElementById("replay"),
+    leavePage = document.getElementById("quit");
 
 const fixedStarsContainer = document.getElementById("rating-star"),
       fixedStar = document.getElementsByClassName("star"),
@@ -89,12 +96,14 @@ function countAMove() {
   movesCounter.innerHTML = moves;
   if (moves === 1) {
     stars.shift();
-    starsContainer.innerHTML = star.values;
+    starsContainer.innerHTML = stars.length;
     console.log(stars);
+    console.log(star);
+    console.log(firstStar);
   }
   else if (moves === 3) {
     stars.shift();
-    fixedStarsContainer.innerHTML = "";
+    starsContainer.innerHTML = stars.length;
     console.log(stars);
   }
 
@@ -144,12 +153,9 @@ startButton.onclick = function startGame() {
     });
   card.classList.remove("matched", "not-matched", "flip");
   }
-  // Reset the stars i do not know how to do it.
-  for (star of stars) { // Looping over our 3 stars
 
-      starsContainer.innerHTML = fixedStarsContainer.innerHTML; // Empty the container;
+// will create the stars dynamically
 
-}
 
   // Start the timer
   clearInterval(Interval); // https://www.w3schools.com/jsref/met_win_clearinterval.asp
@@ -181,4 +187,7 @@ function shuffle(array) {
 
 function popUp() {
     popup.classList.toggle("show");
+    finalMinutes.innerHTML = minutes;
+    finalSeconds.innerHTML = seconds;
+    finalScore.innerHMTL = stars.length;
 }
