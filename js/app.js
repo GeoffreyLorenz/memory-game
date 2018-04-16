@@ -34,7 +34,8 @@ let minutes = 00,
     finalMoveCount = document.getElementById("final-moves"),
     leavePage = document.getElementById("quit"),
     replayGame = document.getElementById("replay"),
-    Quit = document.getElementById("replay");
+    Quit = document.getElementById("replay"),
+    lostGame = loseGame();
 
 
 const fixedStarsContainer = document.getElementById("rating-star"),
@@ -99,26 +100,13 @@ function countAMove() {
   movesCounter.innerHTML = moves;
   if (moves === 1) {
     stars.shift();
-    starsContainer.innerHTML = stars.length;
-    console.log(stars);
-    console.log(star);
-    console.log(firstStar);
+    starsContainer.innerHTML = '<li class="star"><span id="star1" class="fas fa-star"></span></li><li class="star"><span id="star2" class="fas fa-star"></span></li>';
   }
   else if (moves === 3) {
     stars.shift();
-    starsContainer.innerHTML = stars.length;
-    console.log(stars);
-    console.log(star);
-    console.log(firstStar);
+    starsContainer.innerHTML = '<li class="star"><span id="star1" class="fas fa-star"></span></li>';
   }
 
-  else if (moves === 5) {
-    stars.shift();
-    starsContainer.innerHTML = stars.length;
-    console.log(stars);
-    console.log(star);
-    console.log(firstStar);
-  }
   else if (moves > 8)
     {
     loseGame();
@@ -144,11 +132,12 @@ function unMatched() {
 }
 
 function winGame() {
-    console.log("The game ends open a Windows to show the stats and ask if he wants to reset");
-  }
+  popUp();
+}
 
 // Initiate the game
 function startGame() {
+  lostGame = false;
   startButton.innerHTML = "Reset the Game"; // I was thinking about a reset button but I think this is more intuitive to just change start dynamically
   // Mix the deck by calling the shuffle function
   shuffle(cards);
@@ -161,9 +150,14 @@ function startGame() {
   card.classList.remove("matched", "not-matched", "flip");
   }
 
-  starsContainer = fixedStarsContainer;
-  star = fixedStar;
-  stars = [...fixedStar];
+  for (star of stars) { // Looping over our 16 cards
+      starsContainer.innerHTML = ""; // empty if you already finished with 1, 2 or 3 starsContainer
+       // Empty the board / area of the game
+      [].forEach.call(stars, function(inject) { // Tweak from: Learn HTML5 and JavaScript for Android p.98
+        starsContainer.appendChild(inject); // Inject the array in the <li>
+    });
+    starsContainer.innerHTML = '<li class="star"><span id="star1" class="fas fa-star"></span></li><li class="star"><span id="star2" class="fas fa-star"></span></li><li class="star"><span id="star3" class="fas fa-star"></span></li>'; // then reput 3 stars
+  }
 
 
 // will create the stars dynamically

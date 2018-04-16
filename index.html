@@ -30,18 +30,6 @@
       </ul>
       <p>The game ends once all cards have been correctly matched</p>
     </section>
-
-    <div class="popup" onclick="popUp()">Click me!
-      <p class="popuptext" id="myPopup1">Game is finished.<br>
-      You spent <span id="final-minutes"></span> minutes and <span id="final-seconds"></span> seconds to complete the game<br>
-      You got a score of <span id="final-score"></span><br>
-      You needed <span id="final-moves"></span> moves<br>
-      Do you want to play again?<br>
-      <button id="replay" onclick="startGame()">Yes</button><button id="quit" onclick="window.location.href='https://github.com/GeoffreyLorenz'">Quit</button><br> <!-- from: http://www.hyperlinkcode.com/button-links.php -->
-      </p>
-
-    </div>
-
     <section class="statistics">
         <ul id="rating-star">
           <li class="star">
@@ -68,6 +56,15 @@
     </section>
 
     <section class="game-board">
+      <div class="popup">
+        <p class="popuptext" id="myPopup1">Game is finished.<br>
+        You spent <span id="final-minutes"></span> minutes and <span id="final-seconds"></span> seconds to complete the game<br>
+        You got a score of <span id="final-score"></span><br>
+        You needed <span id="final-moves"></span> moves<br>
+        Do you want to play again?<br>
+        <button id="replay" onclick="startGame()">Yes</button><button id="quit" onclick="window.location.href='https://github.com/GeoffreyLorenz'">Quit</button><br> <!-- from: http://www.hyperlinkcode.com/button-links.php -->
+        </p>
+      </div>
       <ul id="area-of-game">
         <li class="card">
           <span class="fas fa-bus"></span>
@@ -119,6 +116,7 @@
         </li>
       </ul>
     </section>
+
   </div>
   <script src="js/app.js"></script>
 

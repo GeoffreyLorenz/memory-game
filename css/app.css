@@ -172,25 +172,21 @@ h2 {
 
 /* Popup container */
 .popup {
-    position: relative;
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     cursor: pointer;
 }
 
 /* The actual popup (appears on top) */
 .popup .popuptext {
     visibility: hidden;
-    width: 320px;
+    width: 300px;
     background-color: #555;
     color: #fff;
     text-align: center;
     border-radius: 6px;
-    padding: 8px 0;
-    position: absolute;
     z-index: 1;
-    bottom: 125%;
-    left: 50%;
-    margin-left: -80px;
 }
 
 /* Popup arrow */
