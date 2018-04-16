@@ -31,8 +31,11 @@ let minutes = 00,
     finalMinutes = document.getElementById("final-minutes"),
     finalSeconds = document.getElementById("final-seconds"),
     finalScore = document.getElementById("final-score"),
-    rePlay = document.getElementById("replay"),
-    leavePage = document.getElementById("quit");
+    finalMoveCount = document.getElementById("final-moves"),
+    leavePage = document.getElementById("quit"),
+    replayGame = document.getElementById("replay"),
+    Quit = document.getElementById("replay");
+
 
 const fixedStarsContainer = document.getElementById("rating-star"),
       fixedStar = document.getElementsByClassName("star"),
@@ -105,12 +108,16 @@ function countAMove() {
     stars.shift();
     starsContainer.innerHTML = stars.length;
     console.log(stars);
+    console.log(star);
+    console.log(firstStar);
   }
 
   else if (moves === 5) {
     stars.shift();
     starsContainer.innerHTML = stars.length;
     console.log(stars);
+    console.log(star);
+    console.log(firstStar);
   }
   else if (moves > 8)
     {
@@ -141,7 +148,7 @@ function winGame() {
   }
 
 // Initiate the game
-startButton.onclick = function startGame() {
+function startGame() {
   startButton.innerHTML = "Reset the Game"; // I was thinking about a reset button but I think this is more intuitive to just change start dynamically
   // Mix the deck by calling the shuffle function
   shuffle(cards);
@@ -153,6 +160,11 @@ startButton.onclick = function startGame() {
     });
   card.classList.remove("matched", "not-matched", "flip");
   }
+
+  starsContainer = fixedStarsContainer;
+  star = fixedStar;
+  stars = [...fixedStar];
+
 
 // will create the stars dynamically
 
@@ -189,5 +201,6 @@ function popUp() {
     popup.classList.toggle("show");
     finalMinutes.innerHTML = minutes;
     finalSeconds.innerHTML = seconds;
-    finalScore.innerHMTL = stars.length;
+    finalScore.innerHMTL = stars.length; // to define
+    finalMoveCount.innerHTML = moves;
 }

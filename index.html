@@ -34,8 +34,10 @@
     <div class="popup" onclick="popUp()">Click me!
       <p class="popuptext" id="myPopup1">Game is finished.<br>
       You spent <span id="final-minutes"></span> minutes and <span id="final-seconds"></span> seconds to complete the game<br>
-      You got a score of <span id="final-score">3 stars</span><br>
-      Do you want to play again? <button id="replay">Yes</button><button id="quit">Quit</button><br>
+      You got a score of <span id="final-score"></span><br>
+      You needed <span id="final-moves"></span> moves<br>
+      Do you want to play again?<br>
+      <button id="replay" onclick="startGame()">Yes</button><button id="quit">Quit</button><br>
       </p>
 
     </div>
@@ -61,7 +63,7 @@
     </section>
 
     <section class="control-buttons">
-      <button id="start">Start the game</button>
+      <button id="start" onclick="startGame()">Start the game</button>
       <button id="pause">Pause the game</button>
     </section>
 
