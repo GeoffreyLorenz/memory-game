@@ -122,7 +122,8 @@ function match() {
   clickedCards[1].classList.toggle("matched");
   pairToFind--;
     if (pairToFind === 0){
-      winGame();
+      setTimeout (function() {
+        winGame();}, 200); // now the moves is uptodate thanks to this delay.
     }
 }
 
