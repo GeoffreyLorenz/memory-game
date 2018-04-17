@@ -160,8 +160,9 @@ function startGame() {
   }
 
 
-// will create the stars dynamically
+  // popup reinitialization:
 
+popup.classList.remove("show");
 
   // Start the timer
   clearInterval(Interval); // https://www.w3schools.com/jsref/met_win_clearinterval.asp
@@ -175,6 +176,8 @@ function startGame() {
   moves = 0;
   movesCounter.innerHTML = moves;
 }
+
+
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 
