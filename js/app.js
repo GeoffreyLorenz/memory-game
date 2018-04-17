@@ -34,8 +34,7 @@ let minutes = 00,
     finalMoveCount = document.getElementById("final-moves"),
     leavePage = document.getElementById("quit"),
     replayGame = document.getElementById("replay"),
-    Quit = document.getElementById("replay"),
-    lostGame = loseGame();
+    Quit = document.getElementById("replay");
 
 
 const fixedStarsContainer = document.getElementById("rating-star"),
