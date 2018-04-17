@@ -201,6 +201,12 @@ h2 {
     border-color: #555 transparent transparent transparent;
 }
 
+#final-score li {
+  display: inline-block;
+  list-style:none;
+
+}
+
 /* Toggle this class when clicking on the popup container (hide and show the popup) */
 .popup .show {
     visibility: visible;

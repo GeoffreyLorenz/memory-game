@@ -98,21 +98,20 @@ function startTimer() {
 function countAMove() {
   moves++;
   movesCounter.innerHTML = moves;
-  if (moves === 1) {
+  if (moves === 10) {
     stars.shift();
     starsContainer.innerHTML = '<li class="star"><span id="star1" class="fas fa-star"></span></li><li class="star"><span id="star2" class="fas fa-star"></span></li>';
   }
-  else if (moves === 3) {
+  else if (moves === 12) {
     stars.shift();
     starsContainer.innerHTML = '<li class="star"><span id="star1" class="fas fa-star"></span></li>';
   }
-  else if (moves === 10) {
+  else if (moves === 15) {
     loseGame();
   }
 }
 
 function loseGame() {
-
   alert("you lost");
   startGame();
 }
@@ -198,6 +197,6 @@ function popUp() {
     popup.classList.toggle("show");
     finalMinutes.innerHTML = minutes;
     finalSeconds.innerHTML = seconds;
-    finalScore.innerHMTL = starsContainer.innerHTML; // to define
+    finalScore.innerHTML = starsContainer.innerHTML; // to define
     finalMoveCount.innerHTML = moves;
 }
