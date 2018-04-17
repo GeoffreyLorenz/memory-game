@@ -106,16 +106,17 @@ function countAMove() {
     stars.shift();
     starsContainer.innerHTML = '<li class="star"><span id="star1" class="fas fa-star"></span></li>';
   }
-
-  else if (moves > 8)
-    {
+  else if (moves === 10) {
     loseGame();
-      }
   }
+}
 
 function loseGame() {
-  console.log("you lost");
+
+  alert("you lost");
+  startGame();
 }
+
 
 function match() {
   clickedCards[0].classList.toggle("matched"); // To trigger matched. otherwise, it's half done animation.
@@ -137,7 +138,6 @@ function winGame() {
 
 // Initiate the game
 function startGame() {
-  lostGame = false;
   startButton.innerHTML = "Reset the Game"; // I was thinking about a reset button but I think this is more intuitive to just change start dynamically
   // Mix the deck by calling the shuffle function
   shuffle(cards);
@@ -198,6 +198,6 @@ function popUp() {
     popup.classList.toggle("show");
     finalMinutes.innerHTML = minutes;
     finalSeconds.innerHTML = seconds;
-    finalScore.innerHMTL = stars.length; // to define
+    finalScore.innerHMTL = starsContainer.innerHTML; // to define
     finalMoveCount.innerHTML = moves;
 }
