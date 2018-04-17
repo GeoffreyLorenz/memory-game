@@ -49,12 +49,12 @@ for (card of cards) {
  // Store the value of clicked Cards, which will be always [0, 1]
   card.onclick = function cardsWaitingToBeCompared() {  // When a card is clicked on, it calls the function cardsWaitingToBeCompared
   this.classList.toggle("flip");// Use of "this." otherwise, when I click on a card, another one get flipped.
-  clickedCards.push(this); // Which store the clicked card in the clickedCards array
+  clickedCards.push(this); // Which stores the clicked card in the clickedCards array
 
     if (clickedCards.length === 2 && clickedCards[0].innerHTML === clickedCards[1].innerHTML) { // Once two cards are clicked trigger the below actions
       match();
       countAMove();
-      clickedCards = [];
+      clickedCards = []; // empty the clickedCards Array, otherwise it will keep on counting
     }
 
     else if (clickedCards.length === 2 && clickedCards[0].innerHTML !== clickedCards[1].innerHTML) {
@@ -106,7 +106,8 @@ function countAMove() {
     starsContainer.innerHTML = '<li class="star"><span id="star1" class="fas fa-star"></span></li>';
   }
   else if (moves === 15) {
-    loseGame();
+    setTimeout (function() {
+      loseGame();}, 200); // without this time out, the moves was reaching 15 but did not have time to display.
   }
 }
 
